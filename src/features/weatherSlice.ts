@@ -1,17 +1,23 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { IWeatherInfo } from "../types/interfaces";
+import toast from "react-hot-toast";
 
-interface ProductState {
+interface AppState {
     loading: boolean
+    weather: IWeatherInfo
 }
 
-const initialState: ProductState = {
+const initialState: AppState = {
     loading: false,
+    weather: {} as IWeatherInfo
 }
 
 export const getWeather = createAsyncThunk(
-    'Weather/getWeather', async () => {
-        return fetch(``)
+    'Weather/getWeather', async (data: {lat : string, lon: string}) => {
+        const apiKey = sessionStorage.getItem('apiKey')
+        console.log(data, apiKey)
+        return fetch(`https://api.openweathermap.org/dat/2.5/weather?lat=${data.lat}&lon=${data.lon}&appid=${apiKey}&units=metric`)
             .then(res => {
                 return res.json()
             })
@@ -25,19 +31,18 @@ export const weatherSlice = createSlice({
         // addNewProduct : (state,action : PayloadAction<INewProduct>)=> {state.newProducts = [...state.newProducts, action.payload]}
     },
     extraReducers(builder: any) {
-        // //GET
-        // builder.addCase(getProducts.pending, (state: ProductState) => {
-        //     state.loading = true;
-        // })
-        // builder.addCase(getProducts.fulfilled, (state: ProductState, action: PayloadAction<IProducts>) => {
-        //     state.loading = false;
-        //     state.products = action.payload.products
-
-        // })
-        // builder.addCase(getProducts.rejected, (state: ProductState) => {
-        //     state.loading = false;
-        //     state.products = [];
-        // })
+        builder.addCase(getWeather.pending, (state: AppState) => {
+            state.loading = true;
+        })
+        builder.addCase(getWeather.fulfilled, (state: AppState, action: PayloadAction<IWeatherInfo>) => {
+            state.loading = false;
+            state.weather = action.payload
+        })
+        builder.addCase(getWeather.rejected, (state: AppState,action: PayloadAction<IWeatherInfo>) => {
+            state.loading = false;
+            toast.error('An error occurred while fetching the data')
+            state.weather = {} as IWeatherInfo;
+        })
     },
 })
 
