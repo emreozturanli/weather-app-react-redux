@@ -10,14 +10,13 @@ interface AppState {
 
 const initialState: AppState = {
     loading: false,
-    weather: {} as IWeatherInfo
+    weather: {} as IWeatherInfo,
 }
 
 export const getWeather = createAsyncThunk(
     'Weather/getWeather', async (data: {lat : string, lon: string}) => {
         const apiKey = sessionStorage.getItem('apiKey')
-        console.log(data, apiKey)
-        return fetch(`https://api.openweathermap.org/dat/2.5/weather?lat=${data.lat}&lon=${data.lon}&appid=${apiKey}&units=metric`)
+        return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${data.lat}&lon=${data.lon}&appid=${apiKey}&units=metric`)
             .then(res => {
                 return res.json()
             })

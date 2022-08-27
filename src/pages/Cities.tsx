@@ -1,15 +1,11 @@
 import { useNavigate } from "react-router-dom"
-import { useAppDispatch} from "../app/hooks"
-import { getWeather } from "../features/weatherSlice"
 import cities from "../utils/cities.json"
 
 const Cities = () => {
   const navigate = useNavigate()
-  const dispatch =  useAppDispatch()
 
-  const handleClick = (lat : string, lon: string, name : string) =>{
+  const handleClick = (name : string) =>{
     navigate(`/cities/${name}`)
-    dispatch(getWeather({lat, lon}))
   }
   
   return (
@@ -22,7 +18,7 @@ const Cities = () => {
             <div 
             key={city.name}
             className="bg-slate-400 rounded-md hover:bg-green-400 cursor-pointer shadow-xl"
-            onClick={()=>handleClick(city.latitude,city.longitude,city.name)}
+            onClick={()=>handleClick(city.name)}
             >
                 <p 
                 className="text-center text-white text-lg sm:text-xl"
