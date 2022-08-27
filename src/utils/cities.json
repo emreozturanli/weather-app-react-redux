@@ -122,8 +122,8 @@
     {
       "id": 16,
       "name": "Bursa",
-      "latitude": "40.2669",
-      "longitude": "29.0634",
+      "latitude": "40.1667",
+      "longitude": "29.0833",
       "population": 2842547,
       "region": "Marmara"
     },
@@ -242,8 +242,8 @@
     {
       "id": 31,
       "name": "Hatay",
-      "latitude": "36.4018",
-      "longitude": "36.3498",
+      "latitude": "36.5",
+      "longitude": "36.25",
       "population": 1533507,
       "region": "Akdeniz"
     },
@@ -266,8 +266,8 @@
     {
       "id": 34,
       "name": "İstanbul",
-      "latitude": "41.0053",
-      "longitude": "28.9770",
+      "latitude": "41.0351",
+      "longitude": "28.9833",
       "population": 14657434,
       "region": "Marmara"
     },
@@ -354,8 +354,8 @@
     {
       "id": 45,
       "name": "Manisa",
-      "latitude": "38.6191",
-      "longitude": "27.4289",
+      "latitude": "38.8333",
+      "longitude": "28.1667",
       "population": 1380366,
       "region": "Ege"
     },
@@ -394,8 +394,8 @@
     {
       "id": 50,
       "name": "Nevşehir",
-      "latitude": "38.6939",
-      "longitude": "34.6857",
+      "latitude": "38.9167",
+      "longitude": "34.6667",
       "population": 286767,
       "region": "İç Anadolu"
     },
@@ -578,8 +578,8 @@
     {
       "id": 73,
       "name": "Şırnak",
-      "latitude": "37.4187",
-      "longitude": "42.4918",
+      "latitude": "37.5228",
+      "longitude": "42.4594",
       "population": 490184,
       "region": "Güneydoğu Anadolu"
     },
