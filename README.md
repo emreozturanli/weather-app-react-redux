@@ -1,7 +1,7 @@
 # INSTRUCTIONS
 
 ### Below is the live demo link
-[See the page](https://weather-app-react-redux.vercel.app/)
+[See the page](https://weather-app-react-redux-omega.vercel.app/)
 
 You can use 3dcce698f1438a6eb1e6c2f7e6644448  as the API Key.
 
